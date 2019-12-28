@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using Archer.Observers;
+using Archer.Observers.HitPoints;
 
 namespace Archer
 {
@@ -18,6 +20,11 @@ namespace Archer
 
         protected List<Effect> effects = new List<Effect>();
 
+        public DamageObserver DamageObserver { get; private set; }
+        public HealObserver HealObserver { get; private set; }
+        public DeathObserver DeathObserver { get; private set; }
+
+
         public Creature(int maxLife, int attackSpeed, int speed, Vector position, double size) : base(position, size)
         {
             this.maxLife = maxLife;
@@ -25,6 +32,10 @@ namespace Archer
 
             this.attackSpeed = attackSpeed;
             this.speed = speed;
+
+            DamageObserver = new DamageObserver();
+            HealObserver = new HealObserver();
+            DeathObserver = new DeathObserver();
         }
 
         public void AddEffect(Type effectType)
@@ -99,16 +110,19 @@ namespace Archer
         public void Heal(int heal)
         {
             currentLife = Math.Min(currentLife + heal, maxLife);
+
+            HealObserver.NotifyAll();
         }
 
         public void GetDamage(int damage)
         {
             currentLife -= damage;
 
-            Console.WriteLine(currentLife);
+            DamageObserver.NotifyAll();
 
             if (currentLife <= 0)
             {
+                DeathObserver.NotifyAll();
                 Destroy();
             }
         }

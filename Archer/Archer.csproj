@@ -66,6 +66,12 @@
     <Compile Include="Creature.cs" />
     <Compile Include="Enemy\Enemy.cs" />
     <Compile Include="Enemy\StaticArcher.cs" />
+    <Compile Include="Observers\BaseObserver.cs" />
+    <Compile Include="Observers\HitPoints\DamageObserver.cs" />
+    <Compile Include="Observers\HitPoints\DeathObserver.cs" />
+    <Compile Include="Observers\HitPoints\HealObserver.cs" />
+    <Compile Include="Observers\IObservable.cs" />
+    <Compile Include="Observers\IObserver.cs" />
     <Compile Include="Player\HumanPlayer.cs" />
     <Compile Include="Player\IPlayer.cs" />
     <Compile Include="Program.cs" />

@@ -15,7 +15,7 @@ namespace Archer.Attack.Effects
 
         public StaticEffect(int power)
         {
-            this.Power = power;
+            Power = power;
         }
 
         private void EndEffectTimer(object source, ElapsedEventArgs e)
