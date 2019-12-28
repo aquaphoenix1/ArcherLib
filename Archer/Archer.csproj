@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5E8A120A-9055-47CF-8FB7-F19745A9C8B0}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Archer</RootNamespace>
+    <AssemblyName>Archer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attack\BaseRangeAttackDecorator.cs" />
+    <Compile Include="Attack\Effects\Burn.cs" />
+    <Compile Include="Attack\Effects\Frozen.cs" />
+    <Compile Include="Attack\Effects\IDOTEffect.cs" />
+    <Compile Include="Attack\Effects\IHealDamageEffect.cs" />
+    <Compile Include="Attack\Effects\IHOTEffect.cs" />
+    <Compile Include="Attack\Effects\IOTEffect.cs" />
+    <Compile Include="Attack\Effects\OTEffect.cs" />
+    <Compile Include="Attack\Effects\Effect.cs" />
+    <Compile Include="Attack\Effects\IEffect.cs" />
+    <Compile Include="Attack\Effects\StaticEffect.cs" />
+    <Compile Include="Attack\ExtraProjectileRangeAttackDecorator.cs" />
+    <Compile Include="Attack\IAttackAble.cs" />
+    <Compile Include="Attack\IAtackComponent.cs" />
+    <Compile Include="Attack\IRangeAttack.cs" />
+    <Compile Include="Attack\Projectiles\BaseProjectileDecorator.cs" />
+    <Compile Include="Attack\Projectiles\FireProjectile.cs" />
+    <Compile Include="Attack\Projectiles\IProjectileComponent.cs" />
+    <Compile Include="Attack\Projectiles\Projectile.cs" />
+    <Compile Include="Attack\RangeAttack.cs" />
+    <Compile Include="BaseObject.cs" />
+    <Compile Include="Creature.cs" />
+    <Compile Include="Enemy\Enemy.cs" />
+    <Compile Include="Enemy\StaticArcher.cs" />
+    <Compile Include="Player\HumanPlayer.cs" />
+    <Compile Include="Player\IPlayer.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
